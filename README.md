@@ -1,2 +1,1 @@
-# Mandarin Signature Generator
-
+# Hand-written Article Correction
