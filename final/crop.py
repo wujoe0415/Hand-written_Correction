@@ -1,4 +1,3 @@
-# other stuff...
 import cv2
 import numpy as np
 
@@ -107,7 +106,7 @@ def go_crop(img_fp, blocks):
                 Wend =0
     #根据确定的位置分割字符
     counter = 0
-    print(blocks)
+    # print(blocks)
     for m in range(len(Position)):
         if (counter in blocks):
             cv2.rectangle(origineImage, (Position[m][0],Position[m][1]), (Position[m][2],Position[m][3]), (229 ,0 ,238), 1)
