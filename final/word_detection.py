@@ -3,6 +3,7 @@ import cv2
 from PIL import ImageFont, ImageDraw, Image
 from gpt import get_response
 from crop import go_crop
+import re
 img_fp = './src/14.jpg'
 result_path = '1bit.jpg'
 # preprocess image
@@ -31,17 +32,20 @@ with open("result.txt", "w", encoding='utf-8') as file:
     file.write("\n".join(texts))
 cv2.imwrite("result.jpg", img)
 
-# get_response() # call gpt to get response
+get_response() # call gpt to get response
 
 with open("wrong.txt", 'r', encoding='utf-8') as file:
     Lines = file.readlines()
-    if (len(Lines) < 4): print("All correct!")
+    blocks = []
+
+    if len(Lines) < 4: 
+        print("All correct!")
     else:
-        for i in range (4, len(Lines)):
+        for i in range(4, len(Lines)):
             print(Lines[i][2:])
+            # print(Lines[i].split('|')[1].strip())
+            blocks.append(int(Lines[i].split('|')[1].strip()) - 1) # 0-based index
 
+        # print(f'blocks: {blocks}')
 
-# should be modify to fit the response...
-blocks = [0] 
-
-go_crop(img_fp, blocks)
+        go_crop(img_fp, blocks)

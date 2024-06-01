@@ -34,7 +34,7 @@ def get_response():
     ]
 
     response = get_completion(messages, temperature=0)
-    # print(response)
+    print(response)
     with open('./wrong.txt', 'w', encoding='utf-8') as file:
         file.write(response)
-    file.close()
+    # file.close()
