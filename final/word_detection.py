@@ -3,7 +3,7 @@ import cv2
 from PIL import ImageFont, ImageDraw, Image
 from gpt import get_response
 img_fp = './src/11.jpg'
-result_path = '1bit.jpg'
+result_path = 'result.jpg'
 # preprocess image
 # _img = cv2.imread(img_fp)
 # gray = cv2.cvtColor(_img, cv2.COLOR_BGR2GRAY)
@@ -15,10 +15,20 @@ out = ocr.ocr(img_fp)
 img = cv2.imread(img_fp)
 
 texts = []
+# Rectangle
 for line in out:
     p1, p2, p3, p4 = line['position']
     cv2.rectangle(img, (int(p1[0]), int(p1[1])), (int(p3[0]), int(p3[1])), color=(0, 255, 0), thickness=2)
     texts.append(line['text'])
+cv2.imwrite(result_path, img)
+
+# text
+for line in out:
+    p1, p2, p3, p4 = line['position']
+    img = Image.open(result_path)
+    I1 = ImageDraw.Draw(img)
+    I1.text((int(p1[0]), int(p1[1])), line['text'], fill=(255, 0, 0))
+img.save('result.jpg')
     # show text on image
     # fnt = ImageFont.truetype("./src/MaShanZheng-Regular.ttf", 40, encoding='utf-8')
     # img_pil = Image.fromarray(img)
