@@ -2,8 +2,9 @@ from cnocr import CnOcr
 import cv2
 from PIL import ImageFont, ImageDraw, Image
 from gpt import get_response
-img_fp = './src/11.jpg'
-result_path = 'result.jpg'
+from crop import go_crop
+img_fp = './src/14.jpg'
+result_path = '1bit.jpg'
 # preprocess image
 # _img = cv2.imread(img_fp)
 # gray = cv2.cvtColor(_img, cv2.COLOR_BGR2GRAY)
@@ -15,20 +16,10 @@ out = ocr.ocr(img_fp)
 img = cv2.imread(img_fp)
 
 texts = []
-# Rectangle
 for line in out:
     p1, p2, p3, p4 = line['position']
     cv2.rectangle(img, (int(p1[0]), int(p1[1])), (int(p3[0]), int(p3[1])), color=(0, 255, 0), thickness=2)
     texts.append(line['text'])
-cv2.imwrite(result_path, img)
-
-# text
-for line in out:
-    p1, p2, p3, p4 = line['position']
-    img = Image.open(result_path)
-    I1 = ImageDraw.Draw(img)
-    I1.text((int(p1[0]), int(p1[1])), line['text'], fill=(255, 0, 0))
-img.save('result.jpg')
     # show text on image
     # fnt = ImageFont.truetype("./src/MaShanZheng-Regular.ttf", 40, encoding='utf-8')
     # img_pil = Image.fromarray(img)
@@ -40,4 +31,17 @@ with open("result.txt", "w", encoding='utf-8') as file:
     file.write("\n".join(texts))
 cv2.imwrite("result.jpg", img)
 
-get_response() # call gpt to get response
+# get_response() # call gpt to get response
+
+with open("wrong.txt", 'r', encoding='utf-8') as file:
+    Lines = file.readlines()
+    if (len(Lines) < 4): print("All correct!")
+    else:
+        for i in range (4, len(Lines)):
+            print(Lines[i][2:])
+
+
+# should be modify to fit the response...
+blocks = [0] 
+
+go_crop(img_fp, blocks)
