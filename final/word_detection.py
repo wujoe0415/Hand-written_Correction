@@ -53,4 +53,4 @@ with open("wrong.txt", 'r', encoding='utf-8') as file:
 
         # print(f'blocks: {blocks}')
 
-        go_crop(img_fp, blocks)
+    go_crop(img_fp, blocks)
