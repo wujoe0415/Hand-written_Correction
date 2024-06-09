@@ -41,6 +41,11 @@ with open("wrong.txt", 'r', encoding='utf-8') as file:
     if len(Lines) < 4: 
         print("All correct!")
     else:
+        num_of_characters = len(Lines[0]) - 7 # remove '正确比率: ' 和 '\n'
+        num_of_wrong = len(Lines) - 4
+        print(f'总字数: {num_of_characters}, 错误字数: {num_of_wrong}')
+        print(f'正确比率: {(num_of_characters - num_of_wrong) / num_of_characters}')
+
         for i in range(4, len(Lines)):
             print(Lines[i][2:])
             # print(Lines[i].split('|')[1].strip())
