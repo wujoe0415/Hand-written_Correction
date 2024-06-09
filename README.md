@@ -6,25 +6,25 @@ In a formal situation, we need to ensure that everything is correct. So here is 
 
 ## Pipeline
 
-![image-20240610013022812](../../../../../../AppData/Roaming/Typora/typora-user-images/image-20240610013022812.png)
+![image-20240610013022812](https://hackmd.io/_uploads/H1bSuwQr0.png)
 
 ## Main Approach
 
-![image-20240610013346234](../../../../../../AppData/Roaming/Typora/typora-user-images/image-20240610013346234.png)
+![image-20240610013346234](https://hackmd.io/_uploads/BkNUOvQH0.png)
 
 There are 4 steps in the training process. 
 
-![image-20240610013314907](../../../../../../AppData/Roaming/Typora/typora-user-images/image-20240610013314907.png)
+![image-20240610013314907](https://hackmd.io/_uploads/HyZOdD7r0.png)
 
-![image-20240610013403578](../../../../../../AppData/Roaming/Typora/typora-user-images/image-20240610013403578.png)
+![image-20240610013403578](https://hackmd.io/_uploads/ryY5_vXHA.png)
 
-![image-20240610013414762](../../../../../../AppData/Roaming/Typora/typora-user-images/image-20240610013414762.png)
+![image-20240610013414762](https://hackmd.io/_uploads/B1Ij_DXBC.png)
 
 ## Result
 
-![image-20240610013516588](../../../../../../AppData/Roaming/Typora/typora-user-images/image-20240610013516588.png)
+![image-20240610013516588](https://hackmd.io/_uploads/B1rh_PmH0.png)
 
-![image-20240610013533068](../../../../../../AppData/Roaming/Typora/typora-user-images/image-20240610013533068.png)
+![image-20240610013533068](https://hackmd.io/_uploads/BJlTdPmrA.png)
 
 ## Reference
 
